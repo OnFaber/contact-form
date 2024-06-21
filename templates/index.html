@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Contact form</title>
+
+    <style>
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
+    </style>
+    <link href="../static/css/style.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <main class="mb-2">      
+      <h1 class="mt-2 mb-3">Contact Us</h1>      
+      <form id="form" method="POST">
+	{{ form.csrf_token }}
+	<!-- first row -->
+	<div class="row mb-2">
+	  <div class="">
+	    <label class="mb-1" for="user_name">First Name</label>
+	    <input id="user_name"  name="first_name" type="text">
+	    <p class="error-message">field must not be empty</p>
+	  </div>
+
+	  <div class="">
+	    <label class="mb-1" for="last_name">Last Name</label>
+	    <input id="last_name" name="last_name" type="text" >
+	    <p class="error-message">field must not be empty</p>
+	  </div>
+	</div>
+	<!-- end first row -->
+
+	<!-- second row -->
+	<div class="mb-2">
+	  <label class="mb-1" for="email">Email Address</label>
+	  <input id="email" name="email" type="email" >
+	  <p class="error-message">field must not be empty</p>
+	</div>
+	<!-- end second row -->
+
+	<!-- radio container -->
+	<div class="div_radio mb-2">
+	  <p class="mb-2" id="query_type">Query Type</p>
+	  
+	  <div class="div_radio-outer">
+	    <div class="div_radio-inner">
+	      <input id="enquiry" class="mx-2" type="radio" name="query" value="enquiry" />
+	      <label for="enquiry">General Enquiry</label>
+	    </div>
+	    
+	    <div class="div_radio-inner">
+	      <input id="support" class="mx-2" type="radio" name="query" value="support">
+	      <label for="support">Support Request</label>
+	    </div>
+	  </div>
+	  <p class="error-message">field must not be empty</p>
+	</div>
+	<!-- radio container end -->
+
+	<!-- textarea -->
+	<div class="mb-2">
+	  <label class="mb-1" for="textarea">Message</label>
+	  <textarea id="textarea" name="message" rows="7" ></textarea>
+	  <p class="error-message">field must not be empty</p>
+	</div>
+	<!-- textarea end -->
+
+	
+	<div class="my-3">
+	  <input id="consent" class="mr-2" name="checkbox" type="checkbox">
+	  <label class="consent" for="consent">I consent to being contacted by the team</label>
+	  <p class="error-message">To submit this form, please consent to being contacted</p>
+	</div>
+	
+	<button>submit</button>
+      </form>
+    </main>
+    <!-- Message Sent! -->
+    <!-- Thanks for completing the form. We'll be in touch soon! -->
+    
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,260 @@
+/** Prelims */
+
+@font-face {
+    font-family: "Karla-Bold";
+    src:
+	url("../fonts/static/Karla-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Karla-Regular";
+    src:
+	url("../fonts/static/Karla-Regular.ttf") format("truetype");
+}
+
+:root {
+    /* Primary */
+    --green-200: hsl(148, 38%, 91%);
+    --green-600: hsl(169, 82%, 27%);
+    /* Neutral */
+    --white: hsl(0, 0%, 100%);
+    --grey-500: hsl(186, 15%, 59%);
+    --grey-900: hsl(187, 24%, 22%);
+    --root-size: 1rem;
+    --font-family-bold: Karla-Bold;
+    --font-family-regular: Karla-Regular;
+    --gap-size: 1rem;
+}
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/** Tags */
+
+body {    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family-bold), 'sans-serif';
+    font-size: var(--root-size);
+    color: var(--grey-900);
+    background-color: var(--green-200);
+}
+
+main {
+    padding: 1rem 2rem 2rem;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    max-width: 43rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--white);
+    border-radius: 5px;
+}
+
+form {
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+form > div:last-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+label {
+    display: block;
+}
+
+textarea {
+
+    padding: 1rem;
+    width: 100%;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: var(--grey-500);
+    font-size: 1.5rem;
+    resize: none;
+}
+
+button {
+    height: 3rem;
+    width: 100%;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: var(--green-600);
+    background-color: var(--green-600) !important;
+    color: var(--white) !important;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/** Inputs */
+
+input[type="radio"] {
+
+}
+
+input[type="text"],
+input[type="email"] {
+
+    padding: 1rem;
+    width: 100%;
+    height: 2.75rem;
+    font-size: 1rem;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--grey-500);
+    color: var(---grey-900);
+}
+
+input[type="checkbox"] {
+}
+
+/** Classes */
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mb-1 {
+    margin-bottom: .5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.my-2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.my-3 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.mr-2 {
+    margin-right: 1rem;   
+}
+
+.mx-2 {
+    margin-right: 1rem;
+    margin-left: 1rem;   
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.row div {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+}
+
+.div_radio {
+    display: flex;
+    flex-direction: column;
+}
+
+.div_radio > div {
+    display: flex;
+    gap: 1rem;
+}
+
+.div_radio-inner {
+    height: 3rem;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--grey-500);
+    border-radius: 4px;
+}
+
+.error {
+    border: 2px solid red !important;
+}
+
+.error-message {
+    display: none;
+    margin: 1rem 0;
+    width: 100%;
+    color: red;
+}
+
+/** Pseudo classes */
+label:hover,
+input:hover {
+    cursor: pointer; 
+}
+
+textarea:hover {
+    cursor: text;
+}
+
+input:focus,
+textarea:focus {
+    outline-color: var(--green-600);
+}
+
+label:not(input[type="radio"] + label)::after, /* label that is not sibling of inputs of type radio */
+#query_type::after,
+.consent::after {
+    content: "*";
+    display: inline-block;
+    margin-left: .5rem;
+    color: var(--green-900);
+}
+
+/** Media queries */
+@media screen and (max-width: 500px) {
+    .form {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+    }
+
+    .form > div {
+	width: 100%;
+    }
+
+    .container_checkbox {	
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+    }
+
+    .container_checkbox > div {
+	padding: 1rem 0;
+	width: 100%;	
+    }
+
+}
+
+/** Local variables for this file
+ Local Variables:
+ outline-regexp: "^/\\*\\*+"
+ eval: (outline-minor-mode 1)
+ eval: (outline-hide-sublevels 3)
+ End:
+*/
