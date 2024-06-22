@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Frontend Mentor - Contact form solution
 
 This is a solution to the [Contact form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/contact-form--G-hYlqKJj).
@@ -33,11 +32,9 @@ Users should be able to:
 
 ### Screenshot
 
-[desktop solution](./screenshot/desktop.png)
-[mobile solution](./screenshot/mobile.png)
-[errors solution](./screenshot/errors-preview.png)
-
-## My process
+[desktop solution](./screenshots/desktop.png)
+[mobile solution](./screenshots/mobile.png)
+[errors solution](./screenshots/errors-preview.png)
 
 ### Built with
 
@@ -45,9 +42,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - [Flask](https://flask.palletsprojects.com/en/3.0.x/) - python library
-- [Flask-sqlalchemy]
-- [Flask-WTForms]
-- [sqlite3]
-=======
+- Flask-sqlalchemy
+- Flask-WTForms
+- Sqlite3
 
->>>>>>> origin/main
