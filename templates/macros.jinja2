@@ -1,0 +1,7 @@
+{% macro render_error(field) %}
+    {% if field.errors %}
+	{% for error in field.errors %}
+	    <p class="error-message mt-2">{{ error }}</p>
+	{% endfor%}
+    {% endif %}
+{% endmacro %}
