@@ -302,13 +302,10 @@ label:not(input[type="radio"] + label)::after, /* label that is not sibling of i
     #form > div:not(div:last-of-type) {
 	flex-direction: column;
     }
-}
 
-@media screen and (max-width: 500px) {
     #options {
 	flex-direction: column;
     }
-
 }
 
 /** Local variables for this file
