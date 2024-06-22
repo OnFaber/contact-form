@@ -6,7 +6,7 @@ from models import db, Contact
 
 def create_app():
     app = Flask(__name__)
-    app.config["SECRET_KEY"] = "secretkey"
+    app.config["SECRET_KEY"] = "vivalafica"
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
     db.init_app(app)
 
