@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Frontend Mentor - Contact form solution
 
 This is a solution to the [Contact form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/contact-form--G-hYlqKJj).
@@ -47,3 +48,6 @@ Users should be able to:
 - [Flask-sqlalchemy]
 - [Flask-WTForms]
 - [sqlite3]
+=======
+
+>>>>>>> origin/main
