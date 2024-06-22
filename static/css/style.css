@@ -50,6 +50,7 @@ body {
 
 main {
     padding: 1rem 2rem 2rem;
+    position: relative;
     width: 100%;
     height: auto;
     max-height: 100vh;
@@ -72,8 +73,9 @@ form > div:last-of-type {
     align-items: center;
 }
 
-label {
+label:not(input[type="checkbox"] + label) {
     display: block;
+    text-transform: capitalize;
 }
 
 textarea {
@@ -100,15 +102,15 @@ button {
     text-transform: capitalize;
 }
 
-/** Inputs */
-
-input[type="radio"] {
-
+ul {
+    width: 100%;
+    list-style-type: none;
 }
+
+/** Inputs */
 
 input[type="text"],
 input[type="email"] {
-
     padding: 1rem;
     width: 100%;
     height: 2.75rem;
@@ -119,11 +121,29 @@ input[type="email"] {
     color: var(---grey-900);
 }
 
-input[type="checkbox"] {
+/** Classes and ids*/
+/*** ids */
+#options {
+    margin-top: .5rem;
+    display: flex;
+    gap: 1rem;
 }
 
-/** Classes */
+#options li {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
 
+#options li input {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+/*** classes */
 .mt-2 {
     margin-top: 1rem;
 }
@@ -148,6 +168,11 @@ input[type="checkbox"] {
 .my-3 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+}
+
+.my-4 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .mr-2 {
@@ -196,10 +221,41 @@ input[type="checkbox"] {
 }
 
 .error-message {
-    display: none;
-    margin: 1rem 0;
     width: 100%;
     color: red;
+}
+
+.success {
+    padding: 1rem;
+    position: absolute;
+    width: 500px;
+    height: 100px;
+    color: var(--white);
+    background-color: var(--grey-900);
+    border-radius: 8px;
+    visibility: hidden; /* per nasconderlo dai lettori e non essere focussabile */
+    transform: translateY(-100%);
+    transition: transform 0.2s ease-in;
+}
+
+.success.show {
+    visibility: visible;
+    top: 4rem;
+    transform: translateY(0);
+}
+
+.success ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;    
+}
+
+.success ul li:first-of-type {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    text-transform: capitalize;
 }
 
 /** Pseudo classes */
@@ -224,6 +280,13 @@ label:not(input[type="radio"] + label)::after, /* label that is not sibling of i
     display: inline-block;
     margin-left: .5rem;
     color: var(--green-900);
+}
+
+.success > ul > li:first-of-type::before {
+    content: url(../images/icon-success-check.svg);
+    display: block;
+    height: 20px;
+    margin-right: .5rem;
 }
 
 /** Media queries */

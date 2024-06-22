@@ -1,3 +1,5 @@
+{% from "macros.jinja2" import render_error, render_form_field %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,73 +21,68 @@
 	{{ form.csrf_token }}
 	<!-- first row -->
 	<div class="row mb-2">
-	  <div class="">
-	    <label class="mb-1" for="user_name">First Name</label>
-	    <input id="user_name"  name="first_name" type="text">
-	    <p class="error-message">field must not be empty</p>
+	  <div>
+	    {{ render_form_field(form.first_name, has_autocomplete=true) }}
 	  </div>
 
-	  <div class="">
-	    <label class="mb-1" for="last_name">Last Name</label>
-	    <input id="last_name" name="last_name" type="text" >
-	    <p class="error-message">field must not be empty</p>
+	  <div>
+	    {{ render_form_field(form.last_name, has_autocomplete=true) }}
 	  </div>
 	</div>
 	<!-- end first row -->
 
 	<!-- second row -->
 	<div class="mb-2">
-	  <label class="mb-1" for="email">Email Address</label>
-	  <input id="email" name="email" type="email" >
-	  <p class="error-message">field must not be empty</p>
+	  {{ render_form_field(form.email, has_autocomplete=true) }}
 	</div>
 	<!-- end second row -->
 
 	<!-- radio container -->
-	<div class="div_radio mb-2">
-	  <p class="mb-2" id="query_type">Query Type</p>
-	  
-	  <div class="div_radio-outer">
-	    <div class="div_radio-inner">
-	      <input id="enquiry" class="mx-2" type="radio" name="query" value="enquiry" />
-	      <label for="enquiry">General Enquiry</label>
-	    </div>
-	    
-	    <div class="div_radio-inner">
-	      <input id="support" class="mx-2" type="radio" name="query" value="support">
-	      <label for="support">Support Request</label>
-	    </div>
-	  </div>
-	  <p class="error-message">field must not be empty</p>
+	<div class="mb-2">
+	  {{ form.options.label }}
+	  {{ form.options(required=false) }}
+	  {{ render_error(form.options) }}
 	</div>
 	<!-- radio container end -->
 
 	<!-- textarea -->
 	<div class="mb-2">
-	  <label class="mb-1" for="textarea">Message</label>
-	  <textarea id="textarea" name="message" rows="7" ></textarea>
-	  <p class="error-message">field must not be empty</p>
+	  {{ form.textarea.label(class_=("mb-1")) }}
+	  {{ form.textarea(class_=("error" if form.textarea.errors else ""), rows="5", required=false) }}
+	  {{ render_error(form.textarea) }}
 	</div>
 	<!-- textarea end -->
-
 	
-	<div class="my-3">
-	  <input id="consent" class="mr-2" name="checkbox" type="checkbox">
-	  <label class="consent" for="consent">I consent to being contacted by the team</label>
-	  <p class="error-message">To submit this form, please consent to being contacted</p>
+	<div class="my-4">		    
+	  {{ form.checkbox(class_=("mr-2"))}}
+	  {{ form.checkbox.label}}
+	  {{ render_error(form.checkbox) }} 
 	</div>
 	
 	<button>submit</button>
       </form>
     </main>
-    <!-- Message Sent! -->
-    <!-- Thanks for completing the form. We'll be in touch soon! -->
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+	{% for category, message in messages %}
+	  {% if category == 'success' %}
+	    <div class="success">
+	      <ul>
+		<li>message sent!</li>
+		<li>{{ message }}</li>	
+	      </ul>
+	    </div>
+	  {% endif %}
+	{% endfor %}
+      {% endif %}
+    {% endwith %}
     
     <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
       Coded by <a href="#">Your Name Here</a>.
     </div>
 
-    <script src="assets/js/index.js"></script>
+    <script src="../static/js/index.js"></script>
   </body>
 </html>

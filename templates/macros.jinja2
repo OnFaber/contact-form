@@ -1,7 +1,14 @@
-{% macro render_error(field) %}
-    {% if field.errors %}
+{% macro render_error(field) %}  
+    {% if field.errors  %}
 	{% for error in field.errors %}
 	    <p class="error-message mt-2">{{ error }}</p>
 	{% endfor%}
     {% endif %}
+{% endmacro %}
+
+{# required false just for the challenge to show the error from wtf-forms #}
+{% macro render_form_field(field, has_autocomplete=false) %}
+  {{ field.label(class_="mb-1") }}
+  {{ field(class_=("error" if field.errors else ""), required=false, autocomplete=("on" if has_autocomplete else "off")) }}
+  {{ render_error(field) }}
 {% endmacro %}

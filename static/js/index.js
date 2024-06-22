@@ -1,8 +1,16 @@
 'use strict';
 
-const form = document.getElementById('form');
-const username = document.getElementById('user_name');
-const lastname = document.getElementById('last_name');
-const email = document.getElementById('email');
-const query = document.getElementsByName('query');
-const radioContainer = document.getElementById('query_type')
+document.addEventListener('DOMContentLoaded', function () {
+    const flashMessages = document.querySelectorAll('.success');
+
+    flashMessages?.forEach((message, index) => {
+	setTimeout(() => {
+	    message.classList.add('show');
+	}, 100 + index * 500); // Ritardo crescente per ogni messaggio
+
+	// Nasconde il messaggio automaticamente dopo 3 secondi
+	setTimeout(() => {
+	    message.classList.remove('show');
+	}, 3000 + index * 500);
+    })
+})
