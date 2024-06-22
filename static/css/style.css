@@ -290,26 +290,23 @@ label:not(input[type="radio"] + label)::after, /* label that is not sibling of i
 }
 
 /** Media queries */
+@media screen and (max-width: 530px) {
+    
+    form > div:last-of-type {
+	flex-wrap: nowrap;
+    }
+
+}
+
 @media screen and (max-width: 500px) {
-    .form {
-	display: flex;
+    #form > div:not(div:last-of-type) {
 	flex-direction: column;
-	align-items: start;
     }
+}
 
-    .form > div {
-	width: 100%;
-    }
-
-    .container_checkbox {	
-	display: flex;
+@media screen and (max-width: 500px) {
+    #options {
 	flex-direction: column;
-	align-items: start;
-    }
-
-    .container_checkbox > div {
-	padding: 1rem 0;
-	width: 100%;	
     }
 
 }

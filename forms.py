@@ -31,7 +31,7 @@ class ContactForm(FlaskForm):
         "message", validators=[InputRequired("field must not be empty")]
     )
     checkbox = BooleanField(
-        "To submit this form, please consent to being contacted",
+        "I consent to being contacted by the team",
         validators=[InputRequired("field must not be empty")],
     )
 

@@ -5,14 +5,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
     <title>Frontend Mentor | Contact form</title>
 
     <style>
       .attribution { font-size: 11px; text-align: center; }
       .attribution a { color: hsl(228, 45%, 44%); }
     </style>
-    <link href="../static/css/style.css" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/style.css') }}" type="text/css" rel="stylesheet"/>
   </head>
   <body>
     <main class="mb-2">      
@@ -83,6 +83,6 @@
       Coded by <a href="#">Your Name Here</a>.
     </div>
 
-    <script src="../static/js/index.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
   </body>
 </html>
